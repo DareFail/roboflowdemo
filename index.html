@@ -3,68 +3,169 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Roboflow Homepage Demo</title>
+        <title>Making roboflow docs easier to read</title>
         <link href="./style.css" rel="stylesheet" type="text/css" />
         <script src="https://cdn.roboflow.com/0.2.25/roboflow.js"></script>
     </head>
 
     <body>
-        <h1>Roboflow Homepage Demo</h1>
+        <h1>Making roboflow docs easier to read</h1>
         <p>
-            Experiment with the code we use to power the inference widget on the
-            Roboflow Homepage.
+            While going through the roboflow docs, I found myself squinting a bit to read. Squint for greater than ~1 second to increase the text size.
         </p>
-        <img
-            src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/63d3f236a6f0dae14cdf0063_drag-image-here.png"
-            id="picture"
-            style="display: none"
-        />
-        <div id="example_demo">
-            <video muted autoplay loop id="video">
-            <source
-                src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/63d15cb160518f7f9c59a892_Sequence 01-transcode.mp4"
-                type="video/mp4"
-                id="video_source"
-            />
-            </video>
-        </div>
-        <canvas width="640" height="480" id="picture_canvas"></canvas>
-        <canvas width="640" height="480" id="video_canvas"></canvas>
+        <p>I shamelessly stole this template from <a href="https://roboflow.github.io/homepage-demo/">https://roboflow.github.io/homepage-demo/</a></p>
 
-        <div id="prechosen_images_parent">
-            <div id="prechosen_images">
-            <img
-                src="https://media.roboflow.com/homepage/000000000544_jpg.rf.f588881eb2c2829187797d304e3a941d.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675241561128"
-                id="picture_1"
-                onclick="imageInference(this)"
-            />
-            <img
-                src="https://media.roboflow.com/homepage/000000000064_jpg.rf.654457cc709530d859531d38bb990ec8.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675241561271"
-                id="picture_2"
-                onclick="imageInference(this)"
-            />
-            <img
-                src="https://media.roboflow.com/homepage/000000000321_jpg.rf.c38501b6894584ac21c859cd4390e75e.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675241561164"
-                id="picture_3"
-                onclick="imageInference(this)"
-            />
-            <img
-                src="https://media.roboflow.com/homepage/000000000250_jpg.rf.47b3fb8b6ed29e369cc361720b5f21f5.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675241560704"
-                id="picture_4"
-                onclick="imageInference(this)"
-            />
+        <div class="container">
+            <div class="fixed">
+                <canvas width="640" height="480" id="picture_canvas"></canvas>
+                <canvas width="640" height="480" id="video_canvas"></canvas>
+
+                <a href="#" id="webcam-predict" class="hero_button_secondary">Start Webcam</a>
+                <a href="#" id="resetFont" onclick="resetFont()" class="hero_button_secondary">Reset Font</a>
+            </div>
+            <div class="flex-item">
+                <div id="smalltext">
+                    <div>
+                        Following the pandemic, some companies are struggling to organize where people should work. Fast growing startups hired independent of location and large companies like Apple relaxed office requirements. Companies
+                        now want to support the flexibility of independence of location while still enabling camaraderie in offices. What to do?
+                    </div>
+                    <div></div>
+                    <div>
+                        Companies like Meta are requiring all employees to return to the office. Others like GitLab continue to commit to remote, asynchronous work. Yet others -- such as HubSpot, Spotify, and Lyft -- have “flex” or “hybrid”
+                        models where employees can work in an office full-time, part-time, or fully at-home.
+                    </div>
+                    <div></div>
+                    <div>
+                        Hybrid approaches are close, but they fail to address key points many small (<100) and fast growing companies demand. Diffusing culture, iterating quickly, gaining context, and building relationships are aided
+                        through gathering. Access to talent, supporting existing team member locations, and preference for focus call for distributed location.
+                    </div>
+                    <div></div>
+                    <div>To solve these needs, Roboflow engages in what we call “Satellite Work.”</div>
+                    <div></div>
+                    <div></div>
+                    <div>Roboflowers in Mexico City</div>
+                    <div>What is Satellite Work?</div>
+                    <div>
+                        Satellite work is companies offering flexible working locations — in-person, remote, or a mix — while also requiring the team to come together (orbit) with defined regularity. Satellite work needs the company give
+                        their team the monetary resources and opportunities to work in locations such as their home, an office, or occasional co-working in different cities.
+                    </div>
+                    <div></div>
+                    <div>
+                        Roboflow offers Hubs (offices) in San Fancisco and New York, all-company onsites twice a year, on-prem onboarding, a travel stipend for mini team-organized onsites (what we call “Lighthouses”), a productivity stipend
+                        to support distributed work demands, and an optional relocation stipend for new hires. These, together, comprise our implementation of the Satellite way of working.
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>
+                        Satellite work also allows us to hire internationally and remain connected. We currently have team members in 5 countries and team has organized international Lighthouses in Canada, Mexico City, and Europe to visit
+                        our team members in different countries. Satellite work opens a huge talent pool because it allows companies to hire anywhere in the world, remain agile, and receive the benefits of in-person relationship building.
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>First International Lighthouse in Liechtenstein</div>
+                    <div>
+                        However, Satellite work isn’t for every company. Satellite work requires companies offer benefits packages that are ~12% higher than is typical. It also calls for team members to thrive autonomously and travel
+                        regularly.
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>Zoom Team Meeting</div>
+                    <div>How Does Satellite Work?</div>
+                    <div></div>
+                    <div>
+                        Employers must give their team the autonomy and resources to decide how and when different forms of proximity will enable them to do their best work. Below, we show how the principles we have adopted that we
+                        collectively refer to as Satellite work.
+                    </div>
+                    <div></div>
+                    <div>Give Employees Access to Offices and Co-working</div>
+                    <div></div>
+                    <div>
+                        Our Hubs have become an easy and efficient way for our team to gather more often. Roboflowers are constantly filtering in and working from our Hubs when they are traveling, but we also offer a relocation stipend to
+                        anyone on the team that chooses to relocate to a Hub city and cover the costs of moving.
+                    </div>
+                    <div></div>
+                    <div>
+                        Additionally, we provide a $350 monthly productivity stipend to help pay for co-working spaces in any city of an individual's choosing. This stipend is meant to make Satellite work more reliable (i.e., paying for
+                        home internet if they want to work from home), effective (i.e., paying for a tool like Grammarly or Calendly), and productive (i.e., paying for a co-working pass if we prefer an office environment).
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>Lighthouse in Boulder, CO</div>
+                    <div>Give Employees a Travel Stipend</div>
+                    <div>
+                        We provide a $2500 travel stipend each year to allow our team to travel to work alongside other Roboflowers anywhere in the world. Our team often uses their travel stipends to arrange Lighthouses in different cities
+                        of their choosing.
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>Team traveling to a Lighthouse</div>
+                    <div>
+                        Recent Lighthouses include Mexico City, Palm Springs, Dallas, and Nashville. Lighthouses are crucial to embrace the scrappy nature of working together in a startup. Chopping onions for breakfast tacos with a teammate
+                        at an Airbnb, hacking away at a problem together for hours, and playing sand volleyball until the sun goes down will naturally build a stronger relationship than 100 random Wednesdays in an office by the water
+                        cooler.
+                    </div>
+                    <div></div>
+                    <div>Lighthouses are how we build foundational relationships, deeper working trust, and in-person productivity into our culture.</div>
+                    <div></div>
+                    <div></div>
+                    <div>Roboflowers play Sand Volleyball at a Lighthouse in San Diego, CA</div>
+                    <div></div>
+                    <div>Product Team Onsite in Charlotte, NC</div>
+                    <div>Host Company-Organized Onsites</div>
+                    <div>
+                        Roboflow hosts two all company onsites per year in varied locations to rally the entire team around our mission and build relationships. The company onsites have become a focal point of the year for everyone to spend
+                        time together, plan for the year ahead, and build lasting memories. It’s crucial to ensure that our team has time together. Here’s how to organize a successful onsite.
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>Implement On-Prem Onboarding</div>
+                    <div></div>
+                    <div>SF Hub</div>
+                    <div>
+                        For the first 12 Roboflow hires, our founders worked alongside each team member for their first week or more. In order to scale this over time, we require all new hires to onboard in person (“on-prem onboarding”)
+                        during one of their first weeks at the company. This ensures they get to work alongside team members, build relationships quickly, and get a sense of our working cadence.
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>Joseph, our CEO, onboarding a team member</div>
+                    <div>Adopt a Flexible Schedule</div>
+                    <div>
+                        For Satellite to work optimally, it helps to have a flexible schedule. This allows team members to work in all different time zones, travel at various times, or commute to an office. It also enables the team to have
+                        the freedome to dictate when they work best, as long as it is aligned synchronously with your customer needs. Customer facing teams generally need to overlap with customer hours, so schedules may differ from team to
+                        team.
+                    </div>
+                    <div></div>
+                    <div>
+                        Roboflow’s team members currently work in all different time zones. Some of our team regularly travels to work from Italy or Denmark to be closer to their families. By allowing a flexible schedule, it enables them to
+                        travel to wherever they want to co-work together, take paid time off, and help our team have a great quality of life.
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div>Default to Public Communication</div>
+                    <div>
+                        With Satellite work at the heart of Roboflow, we have learned the need for constant communication and an abundance of public documentation. This helps us work effectively and asynchronously. Sourcegraph does a
+                        phenomenal job of this with their extensive open source handbook. Heavy documentation validates a flexible schedule for a team, encourages thoughtful decision-making, and enables radical transparency.
+                    </div>
+                    <div></div>
+                    <div>
+                        Transparency is key for Satellite work because it forces inclusion regardless if someone is in the same office or geographically distributed. Everyone can be a part of the conversation and it allows diverse opinions
+                        to participate. Transparency also gives a team the power and responsibility to improve as a company and as a product.
+                    </div>
+                    <div></div>
+                    <div>
+                        We default to posting in public Slack channels vs DM’s to allow our team to unblock themselves by having visibility to the appropriate information. We take the time to clearly define all of our strategies and
+                        roadmaps to ensure asynchronous work doesn’t prevent our team from moving forward or making a decision.
+                    </div>
+                    <div></div>
+                    <div>
+                        We do all of this while our team is currently located in 25 different cities around the world, from the US to Canada to Scotland to Poland. Our team often doesn’t go more than a month without seeing team members from
+                        a different location. We have the ability to hire the best talent because we can hire anywhere in the world and work distributed in between the occasions we are together in person.
+                    </div>
+                </div>
             </div>
         </div>
 
-        <a href="#" id="webcam-predict" class="hero_button_secondary"
-            >Predict Using Webcam</a
-        >
-        <a href="#" id="image-predict" class="hero_button_secondary"
-            >Predict Using Image</a
-        >
-
-        <select id="model-select">
-        </select>
         <script src="script.js"></script>
     </body>
 </html>

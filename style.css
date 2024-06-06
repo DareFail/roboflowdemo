@@ -63,13 +63,30 @@ h1 {
   max-height: 75px;
   height: 75px;
 }
-#model-select {
-  background-color: #5400ec;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
-  font-size: 16px;
-  border-right: 10px solid transparent;
+
+#smalltext {
+  font-size: 8px;
+  overflow: scroll;
+  height: 600px;
+  overflow-y: auto;
+}
+
+#smalltext div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container {
+  display:flex;
+}
+.fixed {
+  width: 600px;
+}
+.flex-item {
+  background-color:#7887AB;
+  flex-grow: 1;
+}
+
+#resetFont {
+  display: none;
 }

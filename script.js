@@ -1,3 +1,15 @@
+// NEW CODE
+
+var successCount = 0;
+var fontSize = 8;
+
+
+function resetFont() {
+    fontSize = 8;
+    successCount = 0;
+    document.getElementById("smalltext").style.fontSize = fontSize + "px";
+}
+
 // if user is on mobile resolution
 if (window.matchMedia("(max-width: 500px)").matches) {
     var width = window.innerWidth;
@@ -25,77 +37,21 @@ var color_choices = [
     "#CCCCCC",
 ];
 
-var available_models = {
-    "microsoft-coco": {
-        "name": "Microsoft COCO",
-        "version": 9,
-        "video": "",
-        "confidence": 0.6,
-        "imageGrid": [
-            "https://media.roboflow.com/homepage/000000000544_jpg.rf.f588881eb2c2829187797d304e3a941d.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675241561128",
-            "https://media.roboflow.com/homepage/000000000064_jpg.rf.654457cc709530d859531d38bb990ec8.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675241561271",
-            "https://media.roboflow.com/homepage/000000000321_jpg.rf.c38501b6894584ac21c859cd4390e75e.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675241561164",
-            "https://media.roboflow.com/homepage/000000000250_jpg.rf.47b3fb8b6ed29e369cc361720b5f21f5.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1675241560704"
-        ],
-        "model": null
-    },
-    "construction-site-safety": {
-        "name": "Worksite Safety",
-        "version": 27,
-        "confidence": 0.3,
-        "video": "https://media.roboflow.com/homepage/Worksite_Safety/Screen_Recording_2023-02-15_at_11.09.23_AM.mov?ik-sdk-version=javascript-1.4.3&updatedAt=1676479657201",
-        "imageGrid": [
-            "https://media.roboflow.com/homepage/Worksite_Safety/Screenshot_2023-02-15_at_11.07.02_AM_Large.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676480555712",
-            "https://media.roboflow.com/homepage/Worksite_Safety/Screenshot_2023-02-15_at_11.06.04_AM_Large.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676480555618",
-            "https://media.roboflow.com/homepage/Worksite_Safety/001548_jpg.rf.01a671015cc2ceefdbaf0801b4913d12.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1676479636902",
-            "https://media.roboflow.com/homepage/Worksite_Safety/image_818_jpg.rf.d804cf6e52c8a47cf294d98c587594d1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1676479636223"
-        ],
-        "model": null
-    },
-    "containers-detection-db0c2": {
-        "name": "Logistics",
-        "version": 1,
-        "confidence": 0.3,
-        "video": "https://media.roboflow.com/homepage/Logistics/Screen_Recording_2023-02-15_at_11.36.30_AM.mov?ik-sdk-version=javascript-1.4.3&updatedAt=1676479651726",
-        "imageGrid": [
-            "https://media.roboflow.com/homepage/Logistics/pexels-fakhri-ailatat-6585817_Medium.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676540925200",
-            "https://media.roboflow.com/homepage/Logistics/pexels-zeka-alrizki-12779104_Medium.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676540925006",
-            "https://media.roboflow.com/homepage/Logistics/pexels-frans-van-heerden-1624695_Medium.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676540924972",
-            "https://media.roboflow.com/homepage/Logistics/pexels-freestocksorg-122164_Medium.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676540924810"
-        ],
-        "model": null
-    },
-    "sku-110k": {
-        "name": "Retail",
-        "version": 4,
-        "confidence": 0.3,
-        "video": "https://media.roboflow.com/homepage/Retail/Screen_Recording_2023-02-15_at_10.29.04_AM.mov?ik-sdk-version=javascript-1.4.3&updatedAt=1676479650130",
-        "imageGrid": [
-            "https://media.roboflow.com/homepage/Retail/Screenshot_2023-02-15_at_9.47.00_AM_Medium.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676541028965",
-            "https://media.roboflow.com/homepage/Retail/Screenshot_2023-02-15_at_9.46.41_AM_Medium.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676541028957",
-            "https://media.roboflow.com/homepage/Retail/pexels-nothing-ahead-7451957_Medium.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676541028849",
-            "https://media.roboflow.com/homepage/Retail/Screenshot_2023-02-15_at_9.49.03_AM_Medium.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1676541028405"
-        ],
-        "model": null
-    }
+var available_model = {
+    "name": "enhanced-driver-drowsiness-detection-via-deep-learning-qy7p2",
+    "version": 3,
+    "video": "",
+    "confidence": 0.85,
+    "model": null
 };
 
 // populate model select
-var model_select = document.getElementById("model-select");
-
-for (var item in available_models) {
-    var option = document.createElement("option");
-    option.text = available_models[item]["name"];
-    option.value = item;
-    model_select.add(option);
-}
-
-var current_model_name = "microsoft-coco";
+var current_model_name = "enhanced-driver-drowsiness-detection-via-deep-learning-qy7p2";
 const API_KEY = "rf_U7AD2Mxh39N7jQ3B6cP8xAyufLH3";
 const DETECT_API_KEY = "4l5zOVomQmkAqlTJPVKN";
 const CAMERA_ACCESS_URL = "https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/63d40cd1de273045d359cf9a_camera-access2.png";
 const LOADING_URL = "https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/63d40cd2210b56e0e33593c7_loading-camera2.gif";
-var current_model_version = 9;
+var current_model_version = 3;
 var webcamLoop = false;
 
 // when user scrolls past #model-select, stop webcam
@@ -110,7 +66,7 @@ window.addEventListener("scroll", function() {
 });
 
 async function apiRequest (image) {
-    var version = available_models[current_model_name]["version"];
+    var version = available_model["version"];
     var name = current_model_name;
 
     var url = "https://detect.roboflow.com/" + name + "/" + version + "?api_key=" + DETECT_API_KEY;
@@ -129,9 +85,6 @@ async function apiRequest (image) {
 }
 
 async function getModel() {
-    // if (available_models[current_model_name]["model"] != null) {
-    //     return available_models[current_model_name]["model"];
-    // }
 
     var model = await roboflow
     .auth({
@@ -143,107 +96,26 @@ async function getModel() {
     });
 
     model.configure({
-        threshold: available_models[current_model_name]["confidence"],
+        threshold: available_model["confidence"],
         max_objects: 50
     });
-
-    // document.getElementById("video_source").src = available_models[current_model_name]["video"];
-    // document.getElementById("video").load();
-    // document.getElementById("video").play();
-
-    // available_models[current_model_name]["model"] = model;
 
     return model;
 }
 
 var model = null;
 
-document.getElementById("video").setAttribute("playsinline", "");
-document.getElementById("video").play();
-
-document.getElementById("video").addEventListener(
-    "ended",
-    function () {
-    this.currentTime = 0;
-    this.play();
-    },
-    false
-);
-
 document
     .getElementById("webcam-predict")
     .addEventListener("click", function () {
+    document.getElementById("resetFont").style.display = "block";
+    document.getElementById("webcam-predict").style.display = "none";
     document.getElementById("picture_canvas").style.display = "block";
-    document.getElementById("example_demo").style.display = "none";
     webcamInference();
     });
 
 var bounding_box_colors = {};
 
-function switchModel() {
-    current_model_name = document.getElementById("model-select").value;
-    current_model_version = available_models[current_model_name]["version"];
-
-    if (current_model_name == "microsoft-coco") {
-        document.getElementById("picture_canvas").style.display = "none";
-        document.getElementById("example_demo").style.display = "block";
-        document.getElementById("picture").style.display = "none";
-        // show video
-        document.getElementById("video").style.display = "block";
-        document.getElementById("video").play();
-        // hide command tray
-        document.getElementById("prechosen_images_parent").style.display = "none";
-    } else {
-        document.getElementById("picture_canvas").style.display = "none";
-        document.getElementById("example_demo").style.display = "none";
-        document.getElementById("picture").style.display = "block";
-        document
-        .getElementById("picture")
-        .addEventListener("dragover", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        });
-        document
-        .getElementById("picture")
-        .addEventListener("drop", processDrop);
-    }
-
-    // IF MODEL IS microsoft-coco, change 
-
-    // change prechosen_images_parent srcs
-    var prechosen_images = document.getElementById(
-        "prechosen_images"
-    );
-
-    var prechosen_images = prechosen_images.children;
-
-    for (var i = 0; i < prechosen_images.length; i++) {
-        prechosen_images[i].src = available_models[current_model_name]["imageGrid"][i];
-    }
-
-    // hide webcam button if model is not microsoft-coco
-    if (current_model_name != "microsoft-coco") {
-        document.getElementById("webcam-predict").style.display = "none";
-    } else {
-        document.getElementById("webcam-predict").style.display = "inline";
-    }
-
-    // change video to use new one
-    // var video = document.getElementById("video_source");
-    // video.src = available_models[current_model_name]["video"];
-
-    if (webcamLoop) {
-        setImageState(
-            LOADING_URL,
-            "video_canvas"
-        );
-    }
-
-    model = getModel();
-}
-
-// apply switchModel to select
-document.getElementById("model-select").addEventListener("change", switchModel);
 
 function setImageState(src, canvas = "picture_canvas") {
     var canvas = document.getElementById(canvas);
@@ -262,90 +134,103 @@ function setImageState(src, canvas = "picture_canvas") {
 
 function drawBoundingBoxes(predictions, canvas, ctx, scalingRatio, sx, sy, fromDetectAPI = false) {
     for (var i = 0; i < predictions.length; i++) {
-    var confidence = predictions[i].confidence;
-    ctx.scale(1, 1);
+        var confidence = predictions[i].confidence;
+        ctx.scale(1, 1);
 
-    if (predictions[i].class in bounding_box_colors) {
-        ctx.strokeStyle = bounding_box_colors[predictions[i].class];
-    } else {
-        // random color
-        var color =
-        color_choices[Math.floor(Math.random() * color_choices.length)];
-        ctx.strokeStyle = color;
-        // remove color from choices
-        color_choices.splice(color_choices.indexOf(color), 1);
+        if (predictions[i].class in bounding_box_colors) {
+            ctx.strokeStyle = bounding_box_colors[predictions[i].class];
+        } else {
+            // random color
+            var color =
+            color_choices[Math.floor(Math.random() * color_choices.length)];
+            ctx.strokeStyle = color;
+            // remove color from choices
+            color_choices.splice(color_choices.indexOf(color), 1);
 
-        bounding_box_colors[predictions[i].class] = color;
+            bounding_box_colors[predictions[i].class] = color;
+        }
+
+        var prediction = predictions[i];
+        var x = prediction.bbox.x - prediction.bbox.width / 2;
+        var y = prediction.bbox.y - prediction.bbox.height / 2;
+        var width = prediction.bbox.width;
+        var height = prediction.bbox.height;
+
+        if (!fromDetectAPI) {
+            x -= sx;
+            y -= sy;
+
+            x *= scalingRatio;
+            y *= scalingRatio;
+            width *= scalingRatio;
+            height *= scalingRatio;
+        }
+
+        // if box is partially outside 640x480, clip it
+        if (x < 0) {
+            width += x;
+            x = 0;
+        }
+
+        if (y < 0) {
+            height += y;
+            y = 0;
+        }
+
+        // if first prediction, double label size
+
+
+        ctx.rect(x, y, width, width);
+
+        ctx.fillStyle = "rgba(0, 0, 0, 0)";
+        ctx.fill();
+
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.lineWidth = "4";
+        ctx.strokeRect(x, y, width, height);
+        // put colored background on text
+        var text = ctx.measureText(
+            prediction.class + " " + Math.round(confidence * 100) + "%"
+        );
+        // if (i == 0) {
+        //     text.width *= 2;
+        // }
+
+        // set x y fill text to be within canvas x y, even if x is outside
+        // if (y < 0) {
+        //     y = -40;
+        // }
+        if (y < 20) {
+            y = 30
+        }
+
+        // make sure label doesn't leave canvas
+
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fillRect(x - 2, y - 30, text.width + 4, 30);
+        // use monospace font
+        ctx.font = "15px monospace";
+        // use black text
+        ctx.fillStyle = "black";
+
+        ctx.fillText(
+            Math.round(confidence * 100) + "%",
+            x,
+            y - 10
+        );
+
+        // NEW CODE
+        successCount = successCount + 1;
+        if (successCount > 10) {
+            fontSize = fontSize + 1;
+            document.getElementById("smalltext").style.fontSize = fontSize + "px";
+            successCount = 0;
+        }
     }
 
-    var prediction = predictions[i];
-    var x = prediction.bbox.x - prediction.bbox.width / 2;
-    var y = prediction.bbox.y - prediction.bbox.height / 2;
-    var width = prediction.bbox.width;
-    var height = prediction.bbox.height;
-
-    if (!fromDetectAPI) {
-        x -= sx;
-        y -= sy;
-
-        x *= scalingRatio;
-        y *= scalingRatio;
-        width *= scalingRatio;
-        height *= scalingRatio;
-    }
-
-    // if box is partially outside 640x480, clip it
-    if (x < 0) {
-        width += x;
-        x = 0;
-    }
-
-    if (y < 0) {
-        height += y;
-        y = 0;
-    }
-
-    // if first prediction, double label size
-
-
-    ctx.rect(x, y, width, width);
-
-    ctx.fillStyle = "rgba(0, 0, 0, 0)";
-    ctx.fill();
-
-    ctx.fillStyle = ctx.strokeStyle;
-    ctx.lineWidth = "4";
-    ctx.strokeRect(x, y, width, height);
-    // put colored background on text
-    var text = ctx.measureText(
-        prediction.class + " " + Math.round(confidence * 100) + "%"
-    );
-    // if (i == 0) {
-    //     text.width *= 2;
-    // }
-
-    // set x y fill text to be within canvas x y, even if x is outside
-    // if (y < 0) {
-    //     y = -40;
-    // }
-    if (y < 20) {
-        y = 30
-    }
-
-    // make sure label doesn't leave canvas
-
-    ctx.fillStyle = ctx.strokeStyle;
-    ctx.fillRect(x - 2, y - 30, text.width + 4, 30);
-    // use monospace font
-    ctx.font = "15px monospace";
-    // use black text
-    ctx.fillStyle = "black";
-
-    ctx.fillText(
-        prediction.class + " " + Math.round(confidence * 100) + "%",
-        x,
-        y - 10
-    );
+    // NEW CODE
+    if(predictions.length == 0) {
+        successCount = 0;
     }
 }
 
@@ -355,9 +240,6 @@ function webcamInference() {
         "video_canvas"
     );
     webcamLoop = true;
-    // hide prechosen_images_parent
-    document.getElementById("prechosen_images_parent").style.display = "none";
-    document.getElementById("picture").style.display = "none";
     // hide picture canvas, show video canvas
     document.getElementById("picture_canvas").style.display = "none";
     document.getElementById("video_canvas").style.display = "block";
@@ -481,7 +363,6 @@ function imageInference(e) {
     // replace canvas with image
     document.getElementById("picture").style.display = "none";
     document.getElementById("picture_canvas").style.display = "block";
-    document.getElementById("example_demo").style.display = "none";
     document.getElementById("video_canvas").style.display = "none";
 
     var canvas = document.getElementById("picture_canvas");
@@ -524,7 +405,6 @@ function processDrop(e) {
     // hide #picture
     document.getElementById("picture").style.display = "none";
     document.getElementById("picture_canvas").style.display = "block";
-    document.getElementById("example_demo").style.display = "none";
     document.getElementById("video_canvas").style.display = "none";
 
     // clear canvas if necessary
@@ -582,25 +462,3 @@ function processDrop(e) {
     }
 }
 
-// click on image-predict, show image inference
-document.getElementById("image-predict").addEventListener("click", function () {
-    // show prechosen_images_parent
-    document.getElementById("prechosen_images_parent").style.display = "block";
-    document.getElementById("picture_canvas").style.display = "none";
-    document.getElementById("picture").style.display = "block";
-    document.getElementById("example_demo").style.display = "none";
-    document.getElementById("video").style.display = "none";
-    document.getElementById("video_canvas").style.display = "none";
-
-    // terminate webcam loop if running
-    if (webcamLoop) {
-        webcamLoop = false;
-    }
-
-    // set event handler on image
-    document.getElementById("picture").addEventListener("dragover", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    });
-    document.getElementById("picture").addEventListener("drop", processDrop);
-});
